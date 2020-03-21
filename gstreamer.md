@@ -1,5 +1,14 @@
 # Gstreamer Notes 
 
+If there is errors regarding Missing Plugin or decoder
+```shell
+# install gstreamer plugins
+sudo apt-get install gstreamer1.0-plugins-good
+
+# install missing multimedia extras plugins
+sudo apt install ubuntu-restricted-extras
+```
+
 ## Gstreamer cheat sheet
 nice examples for Gstreamer, especially [gst-launch](http://wiki.oz9aec.net/index.php/Gstreamer_cheat_sheet)
 
@@ -23,12 +32,6 @@ cool gstreamer examples for every kind of device even RPi by Amazon.[link](https
  - force-aspect-ratio --- Default value: true
  - extra-controls GstStructure : Additional v4l2 controls for the device
 
-**NOTE** 
-   
-Since 1.14, the use of libv4l2 has been disabled due to major bugs in the emulation layer. To enable usage of this library, set the environment variable GST_V4L2_USE_LIBV4L2=1.
-
-But we use gst-launch-1.0, so it's OK I guess.
-
 #### Text Overlay
 add text to the video stream
 ```shell
@@ -46,4 +49,12 @@ Instead of elapsed time, the system date and time can be added using the `clocko
 #### Encoding and Muxing
 #### Decoding and Demuxing
 #### Network Streaming
+
+#### Note
+ - use `videoconvert` instead of `ffmpegcolorspace`
+ - use `avdec_h264` instead of `ffdec_h264`
+ - use `gst-launch-1.0` instead of `gst-launch-0.10`
+ - Since 1.14, the use of libv4l2 has been disabled due to major bugs in the emulation layer. To enable usage of this library, set the environment variable `GST_V4L2_USE_LIBV4L2=1`
+
+    But we use `gst-launch-1.0`, so it's OK I guess.
 
