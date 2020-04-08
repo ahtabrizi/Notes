@@ -7,10 +7,21 @@ sh install_vim.sh
 ```
 
 ## Install dependencies
+**TODO** automate the followings and `vimrc` copying
 ### YCM (YouCompleteMe)
 
-couldn't install clang 9 --> broken packages
-
+* Add `Plugin 'ycm-core/YouCompleteMe'` to `.vimrc` and install it
+* Download clang binaries from `Pre built binaries` section of [LLVM Download Page](http://llvm.org/releases/download.html) manually
+* Make the download directory:
+```shell
+mkdir -p ~/.vim/bundle/YouCompleteMe/third_party/ycmd/clang_archives
+```  
+* copy the downloaded file as it is into that directory
+* compile you complete me 
+```shell
+cd ~/.vim/bundle/YouCompleteMe
+./install.py --clang-completer -all 
+```
 
 ### color_coded
 For syntax highlighting.
