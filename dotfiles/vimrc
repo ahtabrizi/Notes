@@ -1,0 +1,104 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Git 
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+
+" NerdTree
+Plugin 'preservim/nerdtree'
+
+" Themes
+Plugin 'whatyouhide/vim-gotham'
+Plugin 'fneu/breezy'
+Plugin 'dracula/vim', { 'name': 'dracula' }
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'morhetz/gruvbox'
+Plugin 'rakr/vim-two-firewatch'
+Plugin 'joshdick/onedark.vim'
+Plugin 'tyrannicaltoucan/vim-quantum'
+Plugin 'ChrisKempson/Tomorrow-Theme'
+Plugin 'tyrannicaltoucan/vim-deep-space'
+Plugin 'romainl/Apprentice'
+
+" Highlighting for C/C++
+Plugin 'jeaye/color_coded'
+
+" statuslines and tmux line
+Plugin 'vim-airline/vim-airline'
+Bundle 'edkolev/tmuxline.vim'
+
+" Ctags
+Plugin 'universal-ctags/ctags'
+
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+Plugin 'vim-syntastic/syntastic'
+
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+
+" ------- Theme stuff -------
+let g:airline_powerline_fonts = 1
+set background=dark
+set term=screen-256color
+"set termguicolors
+"
+colo onedark
+autocmd VimEnter * AirlineToggleWhitespace
+"let g:gruvbox_contrast_dark = 'hard'
+"let g:airline_theme='simple'
+
+
+" ------- GitGutter -------
+let g:gitgutter_highlight_linenrs = 1
+"highlight GitGutterDelete guifg=#ff2222 ctermfg=1 
+nmap ghp <Plug>(GitGutterPreviewHunk)
+
+" ------- YCM --------
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_autoclose_preview_window_after_insertion = 1
+"let g:ycm_autoclose_preview_window_after_completion = 0
+let g:ycm_log_level = 'debug'
+let g:ycm_seed_identifiers_with_syntax = 1
+"let g:ycm_warning_symbol = '!'
+"let g:ycm_error_symbol = '!'
+
+" ------ syntastic -------
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+
+" ------------
+syntax on
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set ai
+set number
+set hlsearch
+set ruler
+set tags+=./tags;$HOME
+"set backspace=indent,eol,start
+"highlight Comment ctermfg=green
+
+
+"if !exists('g:airline_symbols')
+"  let g:airline_symbols = {}
+"endif
+"let g:airline_symbols.space = "\ua0"
