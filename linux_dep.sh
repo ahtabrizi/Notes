@@ -1,11 +1,20 @@
 apt-get update 
 apt-get upgrade
 
-#sh opencv-dep.sh
-apt-get install unity-tweak-tool snapd git numix-gtk-theme htop
-snap install spotify telegram-desktop vlc chromium
-snap install code --classic
 
+# install stuff using package manager  
+apt-get install unity-tweak-tool numix-gtk-theme arc-theme
+apt-get install htop snapd git
+
+# install snapd packages
+snap install spotify telegram-desktop vlc chromium
+snap install code --classic # install vscode
+
+# install vim
+sh install_vim.sh
+
+# install opencv dependencies 
+sh opencv-dep.sh
 
 
 
