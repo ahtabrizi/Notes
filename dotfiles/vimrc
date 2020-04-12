@@ -9,6 +9,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" Comments 
+Plugin 'tpope/vim-commentary'
+
 " Git 
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
@@ -41,7 +44,7 @@ Plugin 'universal-ctags/ctags'
 
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'rdnetto/YCM-Generator', { 'branch': 'stable'}
-Plugin 'vim-syntastic/syntastic'
+"Plugin 'vim-syntastic/syntastic'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -54,7 +57,7 @@ set term=screen-256color
 "set termguicolors
 "
 colo onedark
-autocmd VimEnter * AirlineToggleWhitespace
+autocmd VimEnter * AirlineToggleWhitespace      " Turn off airline whitespace 
 "let g:gruvbox_contrast_dark = 'hard'
 "let g:airline_theme='simple'
 
@@ -67,23 +70,28 @@ nmap ghp <Plug>(GitGutterPreviewHunk)
 " ------- YCM --------
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_insertion = 1
-"let g:ycm_autoclose_preview_window_after_completion = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_log_level = 'debug'
 let g:ycm_seed_identifiers_with_syntax = 1
 "let g:ycm_warning_symbol = '!'
 "let g:ycm_error_symbol = '!'
+"let g:ycm_show_diagnostics_ui = 0
 
 " ------ syntastic -------
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+"let g:syntastic_quiet_messages = {
+"        \ "!level":  "errors",
+"        \ "type":    "style",
+"        \ "regex":   '.*',
+"        \ "file:p":  '.*' }
+"
 " ------------
 syntax on
 set tabstop=2
@@ -94,9 +102,10 @@ set number
 set hlsearch
 set ruler
 set tags+=./tags;$HOME
-"set backspace=indent,eol,start
+set backspace=indent,eol,start                 " make backspace work as intended in Insert mode
 "highlight Comment ctermfg=green
 
+hi Normal guibg=NONE ctermbg=NONE              " make vim transparent
 
 "if !exists('g:airline_symbols')
 "  let g:airline_symbols = {}
