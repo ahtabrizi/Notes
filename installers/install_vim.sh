@@ -12,6 +12,9 @@ sudo cp /usr/include/lua5.3/*.h /usr/include/lua5.3/include/
 sudo ln -sf /usr/lib/x86_64-linux-gnu/liblua5.3.so /usr/include/lua5.3/lib/liblua.so
 sudo ln -sf /usr/lib/x86_64-linux-gnu/liblua5.3.a /usr/include/lua5.3/lib/liblua.a
 
+#install powerline fonts
+sudo apt-get install fonts-powerline
+
 cd /tmp
 git clone https://github.com/vim/vim.git
 cd vim
@@ -35,3 +38,8 @@ make distclean
 
 make
 sudo make install
+
+
+# install vundle
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
