@@ -62,6 +62,10 @@ autocmd VimEnter * AirlineToggleWhitespace      " Turn off airline whitespace
 "let g:airline_theme='simple'
 
 
+" ------- Commentary ------
+autocmd FileType c setlocal commentstring=//\ %s
+autocmd FileType cc setlocal commentstring=//\ %s
+autocmd FileType cpp setlocal commentstring=//\ %s
 " ------- GitGutter -------
 let g:gitgutter_highlight_linenrs = 1
 "highlight GitGutterDelete guifg=#ff2222 ctermfg=1 
