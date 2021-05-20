@@ -116,6 +116,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
+# My Setting ----------------------------------------------
+
 # colors of terminal
 alias ls='ls --color'
 export PS1="\[\033[38;5;51m\]\u\[$(tput sgr0)\]\[\033[38;5;39m\]@\[$(tput sgr0)\]\[\033[38;5;10m\]\h\[$(tput sgr0)\]\[\033[38;5;226m\]\w\[$(tput sgr0)\]\[\033[38;5;36m\]\\$\[$(tput sgr0)\]"
@@ -129,12 +132,7 @@ export EDITOR='vim'
 PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
 export PKG_CONFIG_PATH
 
-#export PYTHONPATH="$PYTHONPATH:/home/redhood/dev/SDC/openpilot"
-#export PYTHONPATH="$PYTHONPATH:/home/redhood/dev/openpilot_camera/openpilot"
-#export PYTHONPATH="$PYTHONPATH:/home/redhood/dev/test_openpilot/openpilot"
-#export PYTHONPATH="$PYTHONPATH:/home/redhood/dev/openpilot"
-export PYTHONPATH="$PYTHONPATH:/home/redhood/dev/openpilot_tf"
-
+#export PYTHONPATH="$PYTHONPATH:/path/to/project/dir"
 
 
 # >>> conda initialize >>>
