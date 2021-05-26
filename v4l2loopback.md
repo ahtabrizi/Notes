@@ -75,5 +75,7 @@ gst-launch-1.0 filesrc location=night.mp4 ! qtdemux name=demux demux. ! queue ! 
 play `night.mp4` video file in a v4l2 device that can act as a camera. caps filter and `tee` elements are essential for running it
 ```shell
 gst-launch-1.0 filesrc location=night.mp4 ! decodebin name=dec ! videoconvert ! "video/x-raw,format=YUY2" ! tee ! v4l2sink device=/dev/video1
-```
 
+# other method (works almost everywhere)
+gst-launch-1.0 filesrc location=night.mp4 ! qtdemux name=dmux dmux.video_0 ! queue ! h264parse ! omxh264dec  ! videoconvert ! "video/x-raw,format=YUY2" ! tee ! v4l2sink device=/dev/video2
+```
